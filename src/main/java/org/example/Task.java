@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class Task {
 
-    private String _taskName;
-    private String _taskDescription;
-    private LocalDate _date;
+    private final String _taskName;
+    private final String _taskDescription;
+    private final LocalDate _date;
 
 
-    public Task (String taskName, String taskDescription){
+    public Task(String taskName, String taskDescription) {
 
         _taskName = taskName;
         _taskDescription = taskDescription;

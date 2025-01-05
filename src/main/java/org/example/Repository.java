@@ -24,8 +24,12 @@ public class Repository {
                 GetAllTask();
                 break;
             case 3:
+                System.out.println("Your choose is Delete task");
+                DeleteTaskById();
                 break;
             case 4:
+                System.out.println("Your choose is Delete all tasks");
+                taskDictionary.clear();
                 break;
             case 5:
                 break;
@@ -49,14 +53,20 @@ public class Repository {
     }
 
     private void GetAllTask() {
-        for (Map.Entry<Integer, Task> entry : taskDictionary.entrySet()) {
-            var key = entry.getKey();
-            var t = entry.getValue();
 
-            System.out.println("Id: " + key + " Name: " + t.get_taskName());
+        taskDictionary.forEach((key, t) ->{
+            System.out.println("ID: " + key + " Name: " + t.get_taskName());
             System.out.println("Description: \n" + t.get_taskDescription());
             System.out.println("Date: \n" + t.get_date());
-        }
+        });
+    }
+
+    private void DeleteTaskById(){
+        var scan = new Scanner(System.in);
+        System.out.println("Insert Task ID");
+        var id = scan.nextInt();
+        taskDictionary.remove(id);
+        System.out.println("Task is deleted");
     }
 
 
