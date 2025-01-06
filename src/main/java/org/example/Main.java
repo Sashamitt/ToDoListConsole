@@ -8,17 +8,22 @@ public class Main {
     private static Repository repository = new Repository();
 
     public static void main(String[] args) {
+        var command = 0;
+        while (true) {
+            MainMenu();
+            command = GetCommand();
+            repository.SetCommand(command);
+        }
+    }
+
+    private static void MainMenu() {
         System.out.println("Select action\n");
         System.out.println("1. Add task");
         System.out.println("2. Get all tasks");
         System.out.println("3. Delete task");
         System.out.println("4. Delete all tasks");
         System.out.println("5. Change task");
-        var command = 0;
-        while (true) {
-            command = GetCommand();
-            repository.SetCommand(command);
-        }
+        System.out.println("6. Quit");
     }
 
     public static int GetCommand() {
